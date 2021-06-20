@@ -54,9 +54,12 @@ Includes:
 
 -   Add your own sentry config to `ios/sentry.properties` and `android/sentry.properties`
 
+-   The project assumes a running graphql back-end (see queries in `src/queries/*.gql`). But you can still run the app without one.
+
 ```
 yarn
 npx pod-install ios
+npx @sentry/wizard -i reactNative -p ios android
 npx react-native run-ios
 npx react-native run-android
 ```
@@ -83,8 +86,8 @@ rm -rf yarn.lock package-lock.json node_modules
 rm -rf android/app/build
 rm ios/Pods ios/Podfile.lock
 rm -rf ~/Library/Developer/Xcode/DerivedData
-yarn install && cd ios && pod update && cd ..
-npm start -- --reset-cache
+yarn && cd ios && pod update && cd ..
+yarn start -- --reset-cache
 ```
 
 # Launch checklist
