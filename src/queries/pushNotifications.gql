@@ -1,0 +1,3 @@
+mutation storePushToken($pushToken: String!, $timezoneOffset: Float!) {
+	storePushToken(pushToken: $pushToken, timezoneOffset: $timezoneOffset)
+}

@@ -1,0 +1,73 @@
+mutation createSignupCode($email: String!) {
+	createSignupCode(email: $email)
+}
+
+mutation createLoginCode($email: String!) {
+	createLoginCode(email: $email)
+}
+
+mutation applyAuthCode($email: String!, $code: String!) {
+	applyAuthCode(email: $email, code: $code) {
+		...LoggedInUser
+	}
+}
+
+mutation createOauthUser($email: String!, $spotifyId: String!) {
+	createOauthUser(email: $email, spotifyId: $spotifyId) {
+		user {
+			...LoggedInUser
+		}
+	}
+}
+
+mutation createAppleUser(
+	$email: String!
+	$name: String!
+	$nonce: String!
+	$identityToken: String!
+	$userId: String!
+	$pushToken: String
+) {
+	createAppleUser(
+		email: $email
+		name: $name
+		nonce: $nonce
+		identityToken: $identityToken
+		userId: $userId
+		pushToken: $pushToken
+	) {
+		user {
+			...LoggedInUser
+		}
+	}
+}
+
+mutation loginAppleUser($nonce: String!, $identityToken: String!, $userId: String!) {
+	loginAppleUser(nonce: $nonce, identityToken: $identityToken, userId: $userId) {
+		user {
+			...LoggedInUser
+		}
+	}
+}
+
+mutation createGoogleUser($googleId: String!, $idToken: String!) {
+	createGoogleUser(googleId: $googleId, idToken: $idToken) {
+		user {
+			...LoggedInUser
+		}
+	}
+}
+
+fragment LoggedInUser on User {
+	id
+	token
+	email
+	googleUserId
+	appleUserId
+}
+
+query getMe {
+	me {
+		...LoggedInUser
+	}
+}

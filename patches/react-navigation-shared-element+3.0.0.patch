@@ -1,0 +1,12 @@
+diff --git a/node_modules/react-navigation-shared-element/build/v4/createSharedElementStackNavigator.js b/node_modules/react-navigation-shared-element/build/v4/createSharedElementStackNavigator.js
+index e3f4921..b82fba8 100644
+--- a/node_modules/react-navigation-shared-element/build/v4/createSharedElementStackNavigator.js
++++ b/node_modules/react-navigation-shared-element/build/v4/createSharedElementStackNavigator.js
+@@ -1,6 +1,6 @@
+ import hoistNonReactStatics from "hoist-non-react-statics";
+ import * as React from "react";
+-import { createStackNavigator, CardAnimationContext, } from "react-navigation-stack";
++import { createStackNavigator, CardAnimationContext, } from "@react-navigation/native";
+ import SharedElementRendererContext from "../SharedElementRendererContext";
+ import SharedElementRendererData from "../SharedElementRendererData";
+ import { SharedElementRendererProxy } from "../SharedElementRendererProxy";

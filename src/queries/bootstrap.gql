@@ -1,0 +1,13 @@
+query Bootstrap {
+	appConfig {
+		upgradeNeeded
+		featureFlags {
+			id
+			isOn
+		}
+	}
+
+	me {
+		...LoggedInUser
+	}
+}

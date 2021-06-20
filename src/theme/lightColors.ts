@@ -1,0 +1,85 @@
+const lightColors = {
+	primary20: '#F5FFFC',
+	primary50: '#EBFFF9',
+	primary75: '#E6FFF8',
+	primary100: '#CBFDDC',
+	primary200: '#98FBC3',
+	primary300: '#63F3B0',
+	primary400: '#3CE7A8',
+	primary500: '#03D89E',
+	primary600: '#02B999',
+	primary700: '#019B8F',
+	primary800: '#007A7D',
+	primary900: '#005B67',
+	primaryDeath: '#001E16',
+
+	primaryTransparent0: 'rgba(3, 216, 158, 0)',
+	primaryTransparent1: 'rgba(3, 216, 158, 0.01)',
+	primaryTransparent2: 'rgba(3, 216, 158, 0.02)',
+	primaryTransparent3: 'rgba(3, 216, 158, 0.03)',
+
+	primaryTransparent100: 'rgba(3, 216, 158, 0.08)',
+	primaryTransparent150: 'rgba(3, 216, 158, 0.12)',
+	primaryTransparent200: 'rgba(3, 216, 158, 0.16)',
+	primaryTransparent300: 'rgba(3, 216, 158, 0.24)',
+	primaryTransparent400: 'rgba(3, 216, 158, 0.32)',
+	primaryTransparent500: 'rgba(3, 216, 158, 0.4)',
+	primaryTransparent600: 'rgba(3, 216, 158, 0.48)',
+
+	primaryAction: '#032B44',
+	primaryActionText: '#ffffff',
+
+	secundary50: '#FFF9E0',
+	secundary100: '#FEF8CB',
+	secundary200: '#FEF098',
+	secundary300: '#FEE565',
+	secundary400: '#FDDA3F',
+	secundary500: '#fdc800',
+	secundary600: '#D9A700',
+	secundary700: '#B68800',
+	secundary800: '#926A00',
+	secundary900: '#795500',
+
+	secundaryTransparent100: 'rgba(253, 200, 0, 0.08)',
+	secundaryTransparent200: 'rgba(253, 200, 0, 0.16)',
+	secundaryTransparent300: 'rgba(253, 200, 0, 0.24)',
+	secundaryTransparent400: 'rgba(253, 200, 0, 0.32)',
+	secundaryTransparent500: 'rgba(253, 200, 0, 0.4)',
+	secundaryTransparent600: 'rgba(253, 200, 0, 0.48)',
+
+	lightTransparent80: 'rgba(255,255,255,0.08)',
+	lightTransparent140: 'rgba(255,255,255,0.14)',
+	lightTransparent600: 'rgba(255,255,255,0.6)',
+	lightTransparent800: 'rgba(255,255,255,0.8)',
+	lightTransparent900: 'rgba(255,255,255,0.92)',
+
+	backgroundTransparent0: 'rgba(255,255,255,0)',
+	backgroundTransparent400: 'rgba(255,255,255,0.4)',
+	backgroundTransparent1000: 'rgba(255,255,255,1)',
+
+	grey: '#7086A2',
+	grey100: '#ECF1FF',
+	grey200: '#DBE5FF',
+	grey300: '#D3DCE7',
+	grey500: '#4C688B',
+	grey600: '#436793',
+
+	liftColor: '#032B44',
+	restColor: '#02B999',
+
+	background: '#fff',
+	darkBg: '#000F0B',
+	primaryText: '#021927',
+	secundaryText: '#032B44',
+	modalBg: 'rgba(7,0,18, 0.86)',
+
+	error: '#F67A6B',
+	positivity: '#1DA54C',
+	noModeLight: '#ffffff',
+	link: '#144FFF',
+	transparent: 'transparent',
+
+	spotify: '#1AB26B',
+}
+
+export default lightColors

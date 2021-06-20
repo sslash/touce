@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+      "target": "es2015",
+      "module": "es2015",
+      "jsx": "react-native",
+      "importHelpers": true,
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "allowJs": true,
+      "noUnusedLocals": true,
+      "experimentalDecorators": true,
+      "resolveJsonModule": true,
+      "lib": ["dom", "es7"],
+      "noEmit": true,
+      "forceConsistentCasingInFileNames": true,
+      "types": ["node", "jest","jasmine", "detox"],
+      "skipLibCheck": true // skipping due to conflict between node and react-native typings,
+  },
+  
+  "exclude": [
+      "node_modules",
+      "babel.config.js",
+      "metro.config.js",
+      "**/*.spec.ts",
+      "jest.config.js",
+      "jestSetup.js"
+  ],
+  "include": [
+    "./**/*.tsx",
+    "./**/*.ts",
+    "index.js",
+    ".eslintrc.js"
+  ]
+}
