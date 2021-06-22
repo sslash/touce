@@ -15,7 +15,7 @@ const HomeScreen = (): JSX.Element => {
 			preset="fixed"
 			sludge={SludgeVariant.Minccino}
 			stdMargin
-			sludgeStyle={{ top: responsive({ s: -50, m: -50, xl: -20 }, -40) }}
+			sludgeStyle={{ top: responsive({ s: -50, m: -100, xl: -70 }, -40) }}
 			testID="homeScreen"
 		>
 			<Spacer y={3} />

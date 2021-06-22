@@ -17,6 +17,7 @@ import { RootStackParamList } from '../../navigation/types'
 import { FontSize } from '../../theme/fonts'
 import { mainHorizontalMargin } from '../../theme/metrics'
 import { shadows } from '../../theme/shadows'
+import { responsive } from '../../theme/utils'
 import MusicTimer from './MusicTimer'
 import PodcastTimer from './PodcastTimer'
 
@@ -41,7 +42,7 @@ const EditTimerScreen = (): JSX.Element => {
 		<Screen
 			testID="EditTimerScreen"
 			sludge={SludgeVariant.Lapras}
-			sludgeStyle={{ top: 60 }}
+			sludgeStyle={{top: responsive({xl: 0}, -20)}}
 			preset={'fixed'}
 		>
 			<Row jc="space-between" mt={4}>
@@ -102,6 +103,7 @@ const styles = StyleSheet.create({
 	tab: { justifyContent: 'center', marginTop: 70 },
 	footer: { marginHorizontal: mainHorizontalMargin },
 	tabFont: { fontSize: FontSize.Title },
+
 })
 
 export default EditTimerScreen

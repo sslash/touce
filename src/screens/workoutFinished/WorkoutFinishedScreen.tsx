@@ -88,7 +88,7 @@ const WorkoutFinishedScreen = (props: Props): JSX.Element => {
 	)
 }
 
-const sludgeStyle = { top: responsive({ xl: -200 }, -215) }
+const sludgeStyle = { top: responsive({ xl: -270 }, -285) }
 const verticalMargin = spaceScale[6]
 
 const statsItems = [

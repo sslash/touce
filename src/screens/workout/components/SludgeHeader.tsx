@@ -26,7 +26,7 @@ const SludgeHeader = ({ position, itemWidth }: Props): React.ReactElement => {
 
 	return (
 		<Animated.View style={animatedStyle}>
-			<Sludge variant={SludgeVariant.Wailmer} />
+			<Sludge variant={SludgeVariant.Wailmer} style={{top: -115 }} />
 		</Animated.View>
 	)
 }

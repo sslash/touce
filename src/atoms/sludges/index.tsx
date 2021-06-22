@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, ViewStyle } from 'react-native'
+import { StatusBar, StyleSheet, View, ViewStyle } from 'react-native'
 import AipomSludge from './Aipom'
 import ArbokSludge from './Arbok'
 import CarpetSludge from './Carpet'
@@ -14,6 +14,8 @@ import UnownSludge from './Unown'
 import LaprasSludge from './Lapras'
 import FadedOverlayFooter from '../FadedOverlayFooter'
 import { useTheme } from '../../theme/themeContext'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { defaultHeight } from './constants'
 
 export enum SludgeVariant {
 	Ditto = 1,
@@ -38,7 +40,8 @@ interface Props {
 
 export const Sludge = ({ variant, style, isFaded }: Props): JSX.Element => {
 	const { isDark } = useTheme()
-	const allStyles = [styles.wrapper, isFaded && styles.faded, style]
+	const top = useSafeAreaInsets().top || StatusBar.currentHeight
+	const allStyles = StyleSheet.flatten([styles.wrapper, {top: -top, height: defaultHeight}, isFaded && styles.faded, style])
 	return (
 		<View style={allStyles}>
 			{getSludge(variant, isDark)}
@@ -91,6 +94,6 @@ const getSludge = (variant: SludgeVariant, isDark: boolean) => {
 }
 
 const styles = StyleSheet.create({
-	wrapper: { position: 'absolute', top: 0, left: 0, right: 0, justifyContent: 'center' },
+	wrapper: { position: 'absolute', top: 0, left: 0, right: 0, justifyContent: 'center', overflow: 'hidden' },
 	faded: { opacity: 0.8 },
 })

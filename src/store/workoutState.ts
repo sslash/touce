@@ -13,7 +13,7 @@ interface WorkoutState extends AppStore {
 }
 
 export const useWorkoutState = create<WorkoutState>((set) => ({
-	isWorkingOut: true,
+	isWorkingOut: false,
 	isFreezed: false,
 	restEmoji: undefined,
 	liftEmoji: undefined,

@@ -40,7 +40,6 @@ const SettingsScreen = ({ navigation }: Props): React.ReactElement => {
 			navigation={navigation}
 			backButtonStyle="push"
 			testID="Settings"
-			sludge={SludgeVariant.Ditto}
 			preset={'scroll'}
 			stdMargin
 			headerTitle={s.title}
