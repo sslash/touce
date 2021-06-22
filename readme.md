@@ -48,7 +48,7 @@ Includes:
 
 # Getting started
 
--   Add all the .env variables defined in `src/utils/config/config.ts`
+-   Add all the config variables defined in `src/utils/config/config.ts` to a `.env`, `.env.staging` and `.env.production` file
 
 -   For react-native-firebase, Populate `ios/GoogleService-Info.plist` with proper your own content
 

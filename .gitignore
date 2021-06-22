@@ -30,8 +30,11 @@ local.properties
 *.iml
 
 .env
+.env.staging
 .env.production
 ios/GoogleService-Info.plist
+ios/sentry.properties
+android/sentry.properties
 
 # node.js
 #

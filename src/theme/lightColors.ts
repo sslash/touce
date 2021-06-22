@@ -58,6 +58,7 @@ const lightColors = {
 	backgroundTransparent1000: 'rgba(255,255,255,1)',
 
 	grey: '#7086A2',
+	grey50: '#FAFDFF',
 	grey100: '#ECF1FF',
 	grey200: '#DBE5FF',
 	grey300: '#D3DCE7',

@@ -4,6 +4,7 @@ import { NativeStackNavigationProp } from 'react-native-screens/lib/typescript/n
 import Card from '../../atoms/Card'
 import { SludgeVariant } from '../../atoms/sludges'
 import Spacer from '../../atoms/Spacer'
+import Caption from '../../atoms/texts/Caption'
 import { useStrings } from '../../localization/localizedStrings'
 import Screen from '../../molecules/screen/Screen'
 import { RootStackParamList } from '../../navigation/types'
@@ -13,6 +14,7 @@ import { showNativeShareDialog } from '../../utils/share'
 import { cardSpace } from '../workout/components/settings/constants'
 import SettingRowWrapper from '../workout/components/settings/SettingRowWrapper'
 import AccountSetting from './components/AccountSetting'
+import AppVersionString from './components/AppVersionString'
 import AsyncStorageSetting from './components/AsyncStorageSetting'
 import PushNotificationsSetting from './components/PushNotificationsSetting'
 import ThemeSetting from './components/ThemeSetting'
@@ -99,6 +101,9 @@ const SettingsScreen = ({ navigation }: Props): React.ReactElement => {
 						onPress={makeWebViewLink(config.privacyUrl)}
 					/>
 				</Card>
+
+				<Spacer y={cardSpace} />
+				<AppVersionString />
 			</View>
 		</Screen>
 	)

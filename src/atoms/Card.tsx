@@ -19,7 +19,7 @@ export enum CardVariant {
 }
 
 const backgrounds: Record<string, ColorTypes> = {
-	[CardVariant.Filled]: 'primary20',
+	[CardVariant.Filled]: 'grey50',
 	[CardVariant.Outline]: 'transparent',
 }
 
