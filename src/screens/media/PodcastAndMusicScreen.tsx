@@ -25,10 +25,12 @@ const PodcastAndMusicScreen = (props: Props): JSX.Element => {
 		{ title: strings.navigation.music, key: 'music', Component: MusicScreen },
 	]
 
+	const onChangeTab = (idx: number) => props.navigation.setParams({ isRest: idx === 0 })
+
 	return (
 		<Screen preset="fixed" unsafe>
 			<TabView
-				{...{ scenes, initialIndex }}
+				{...{ scenes, initialIndex, onChangeTab }}
 				isFixed
 				headerVariant="level1"
 				tabsStyle={styles.tabs}

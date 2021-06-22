@@ -1,10 +1,8 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { FlatList, ScrollView, TextStyle, View, ViewStyle } from 'react-native'
+import React, { useCallback, useRef, useState } from 'react'
+import { FlatList, TextStyle, View, ViewStyle } from 'react-native'
 import Spacer from '../../atoms/Spacer'
-import { screenWidth } from '../../theme/metrics'
 import Level1TabsRow from './Level1TabsRow'
 import Level2TabsRow from './Level2TabsRow'
-import SceneWrapper from './SceneWrapper'
 import { HeaderVariant, Scene } from './types'
 
 interface Props<T> {
@@ -16,6 +14,7 @@ interface Props<T> {
 	tabFontStyle?: TextStyle
 	headerSpacing?: number
 	childProps?: T
+	onChangeTab?: (idx: number) => void
 }
 
 function TabView<T>({
@@ -27,6 +26,7 @@ function TabView<T>({
 	headerSpacing = 40,
 	tabFontStyle,
 	childProps,
+	onChangeTab,
 }: Props<T>): React.ReactElement {
 	const [currentIdx, _setCurrentIdx] = useState(initialIndex)
 	const ref = useRef<FlatList>(null)
@@ -36,6 +36,7 @@ function TabView<T>({
 			ref.current.scrollToIndex({ index: idx, animated: true })
 		}
 		_setCurrentIdx(idx)
+		onChangeTab && onChangeTab(idx)
 	}
 
 	const renderItem = useCallback(({ item }: { item: Scene<T> }) => {
