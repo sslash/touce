@@ -40,7 +40,7 @@ const TimerViewTemplate = ({
 			<V my={6}>
 				<SecsAndMinsTimerPicker {...props} enabled={props.isOn} />
 				{!props.isOn && (
-					<Bg style={styles.overlay} bg="noModeLight">
+					<Bg style={styles.overlay} bg="background">
 						<Title>{s.timer.disasbled}</Title>
 					</Bg>
 				)}

@@ -10,7 +10,6 @@ import StartButton from './StartButton'
 import TimerCardsList from './TimerCardsList'
 
 const HomeScreen = (): JSX.Element => {
-	console.log('rerender home')
 	return (
 		<Screen
 			preset="fixed"

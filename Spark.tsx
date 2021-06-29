@@ -40,8 +40,6 @@ const Spark = (): JSX.Element => {
 		return null
 	}
 
-	console.log('rerender spark')
-
 	return (
 		<ThemeManager>
 			<SafeAreaProvider initialMetrics={initialWindowMetrics}>

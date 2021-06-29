@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/core'
 import { StackNavigationProp } from '@react-navigation/stack'
 import React from 'react'
-import CircularShiftTimerWithLabel from '../../atoms/circularTimer/CircularShiftTimerWithLabel'
+import TinyCircleAndLabel from '../../atoms/circularTimer/TinyCircleAndLabel'
 import MediaImage, { MediaImageVariant } from '../../atoms/MediaImage'
 import Row from '../../atoms/Row'
 import ScalingTapView from '../../atoms/ScalingTapView'
@@ -58,7 +58,7 @@ const MediaBox = ({ isRest }: Props): JSX.Element => {
 			</ScalingTapView>
 
 			<ScalingTapView onPress={onPressTimer}>
-				<CircularShiftTimerWithLabel
+				<TinyCircleAndLabel
 					label="2m"
 					percentage={isRest ? 1 - liftFraction : liftFraction}
 					selectedColor={isRest ? 'restColor' : 'liftColor'}

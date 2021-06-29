@@ -8,7 +8,7 @@ interface Props extends CircleProps {
 	label: string
 }
 
-const CircularShiftTimerWithLabel = ({ label, ...rest }: Props): JSX.Element => {
+const TinyCircleAndLabel = ({ label, ...rest }: Props): JSX.Element => {
 	return (
 		<View>
 			<CircularShiftTimer size={50} strokeWidth={8} {...rest}></CircularShiftTimer>
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
 	label: { fontSize: 8, fontWeight: FontWeight.Bold },
 })
 
-export default CircularShiftTimerWithLabel
+export default TinyCircleAndLabel

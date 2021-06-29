@@ -1,3 +1,4 @@
+// thanks to @mironcatalin
 import * as React from 'react'
 import { Animated, Easing, View } from 'react-native'
 import Svg, { Circle, G } from 'react-native-svg'
