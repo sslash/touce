@@ -1,97 +1,92 @@
-import React from 'react'
-import { PixelRatio } from 'react-native'
-import Animated, { multiply, useSharedValue } from 'react-native-reanimated'
-import { mix } from 'react-native-redash'
-import Svg, { Circle, SvgProps } from 'react-native-svg'
+import * as React from 'react'
+import { Animated, Easing, View } from 'react-native'
+import Svg, { Circle, G } from 'react-native-svg'
 import { useTheme } from '../../theme/themeContext'
 import { ColorTypes } from '../../theme/types'
 
-interface Props {
-	size?: number
-	strokeWidth?: number
-	restColor?: ColorTypes
-	liftColor?: ColorTypes
-	liftFraction?: number
-	restOpacity?: number
-	liftOpacity?: number
-	strokeLinecap?: 'round' | 'butt' | 'square'
-	dontAnimate?: boolean
-	style?: SvgProps['style']
-}
-
 const AnimatedCircle = Animated.createAnimatedComponent(Circle)
 
-const CircularShiftTimer: React.FC<Props> = ({
-	style,
+export interface Props {
+	percentage: number
+	selectedColor?: ColorTypes
+	bgColor?: ColorTypes
+	size?: number
+	strokeWidth?: number
+	duration?: number
+	backgroundOpacity?: number
+}
+
+const CircularShiftTimer = ({
+	percentage = 75,
 	size = 100,
 	strokeWidth = 15,
-	restColor = 'restColor',
-	liftColor = 'liftColor',
-	liftFraction = 0.5,
-	restOpacity = 1,
-	liftOpacity = 1,
-	strokeLinecap = 'butt',
-	dontAnimate = false,
-}) => {
+	duration = 350,
+	bgColor = 'restColor',
+	selectedColor = 'liftColor',
+	backgroundOpacity = 0.1,
+}: Props): React.ReactElement => {
 	const { colors } = useTheme()
-	const liftProgress = useSharedValue(dontAnimate ? liftFraction : 0)
-	const restProgress = useSharedValue(dontAnimate ? 1 - liftFraction : 0)
+	const animated = React.useRef<Animated.Value>(new Animated.Value(0)).current
+	const circleRef = React.useRef<View>(null)
+	const circumference = 2 * Math.PI * size
+	const halfCircle = size + strokeWidth
 
-	const _liftColor = colors[liftColor]
-	const _restColor = colors[restColor]
+	React.useEffect(() => {
+		Animated.timing(animated, {
+			delay: 1000,
+			toValue: percentage,
+			duration,
+			useNativeDriver: true,
+			easing: Easing.out(Easing.ease),
+		}).start()
+		animated.addListener((v) => {
+			const maxPerc = (100 * v.value) / 100
+			const strokeDashoffset = circumference - (circumference * maxPerc) / 100
+			if (circleRef?.current) {
+				circleRef.current.setNativeProps({
+					strokeDashoffset,
+				})
+			}
+		})
 
-	const r = PixelRatio.roundToNearestPixel((size - strokeWidth) / 2)
-	const cx = PixelRatio.roundToNearestPixel(size / 2)
-	const cy = PixelRatio.roundToNearestPixel(size / 2)
-	const circumference = PixelRatio.roundToNearestPixel(r * 2 * Math.PI)
-
-	const restArc = mix(restProgress.value, 0, Math.PI * 2)
-	const liftArc = mix(liftProgress.value, 0, Math.PI * 2)
-
-	const restDashOffset = multiply(restArc, r)
-	const liftDashOffset = multiply(-1, multiply(liftArc, r))
-
-	const liftStyle = { opacity: liftOpacity }
-	const restStyle = {
-		opacity: restOpacity,
-	}
+		return () => {
+			animated.removeAllListeners()
+		}
+	}, [percentage])
 
 	return (
-		<Svg
-			width={size}
-			height={size}
-			viewBox={`0 0 ${size} ${size}`}
-			style={[{ transform: [{ rotate: '270deg' }] }, style]}
-		>
-			<AnimatedCircle
-				stroke={_liftColor}
-				fill="none"
-				strokeDasharray={`${circumference}, ${circumference}`}
-				strokeWidth={strokeWidth}
-				{...{
-					style: liftStyle,
-					cx,
-					cy,
-					r,
-					strokeDashoffset: liftDashOffset,
-					strokeLinecap,
-				}}
-			/>
-			<AnimatedCircle
-				stroke={_restColor}
-				fill="none"
-				strokeDasharray={`${circumference}, ${circumference}`}
-				strokeWidth={strokeWidth}
-				{...{
-					cx,
-					cy,
-					r,
-					strokeDashoffset: restDashOffset,
-					strokeLinecap,
-					style: restStyle,
-				}}
-			/>
-		</Svg>
+		<View style={{ width: size * 2, height: size * 2 }}>
+			<Svg
+				height={size * 2}
+				width={size * 2}
+				viewBox={`0 0 ${halfCircle * 2} ${halfCircle * 2}`}
+			>
+				<G rotation="-90" origin={`${halfCircle}, ${halfCircle}`}>
+					<AnimatedCircle
+						stroke={colors[bgColor]}
+						cx="50%"
+						cy="50%"
+						r={size}
+						fill="transparent"
+						strokeWidth={strokeWidth}
+						strokeLinejoin="bevel"
+						strokeOpacity={backgroundOpacity}
+					/>
+					<AnimatedCircle
+						stroke={colors[selectedColor]}
+						ref={circleRef}
+						cx="50%"
+						cy="50%"
+						r={size}
+						fill="transparent"
+						strokeWidth={strokeWidth}
+						strokeLinecap="butt"
+						strokeDashoffset={circumference}
+						strokeDasharray={circumference}
+					/>
+				</G>
+			</Svg>
+		</View>
 	)
 }
 

@@ -7,7 +7,6 @@ import Action from '../../atoms/texts/Action'
 import Caption from '../../atoms/texts/Caption'
 import Lead2 from '../../atoms/texts/Lead2'
 import V from '../../atoms/V'
-import Gear from '../../icons/Gear'
 import SmoothCornerView from '../../nativeModules/SmoothCornerView'
 import { RootStackParamList } from '../../navigation/types'
 import lightColors from '../../theme/lightColors'
@@ -63,7 +62,12 @@ const TimerCard: React.FC<Props> = ({ colors, isDark, isCreate, timer }) => {
 		<Pressable onPress={onPress}>
 			<SmoothCornerView style={containerStyle}>
 				<View style={styles.inner}>
-					<CircularShiftTimer dontAnimate size={67} strokeWidth={17} />
+					<CircularShiftTimer
+						size={45}
+						strokeWidth={24}
+						percentage={60}
+						backgroundOpacity={1}
+					/>
 					<V flex={1} ml={3}>
 						<Action
 							fw="Bold"

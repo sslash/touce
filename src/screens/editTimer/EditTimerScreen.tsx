@@ -42,7 +42,7 @@ const EditTimerScreen = (): JSX.Element => {
 		<Screen
 			testID="EditTimerScreen"
 			sludge={SludgeVariant.Lapras}
-			sludgeStyle={{top: responsive({xl: 0}, -20)}}
+			sludgeStyle={{ top: responsive({ xl: 0 }, -20) }}
 			preset={'fixed'}
 		>
 			<Row jc="space-between" mt={4}>
@@ -51,7 +51,6 @@ const EditTimerScreen = (): JSX.Element => {
 					<CircularShiftTimer
 						size={87}
 						strokeWidth={22}
-						dontAnimate
 						strokeLinecap="round"
 						style={styles.circularTimer}
 					/>
@@ -103,7 +102,6 @@ const styles = StyleSheet.create({
 	tab: { justifyContent: 'center', marginTop: 70 },
 	footer: { marginHorizontal: mainHorizontalMargin },
 	tabFont: { fontSize: FontSize.Title },
-
 })
 
 export default EditTimerScreen

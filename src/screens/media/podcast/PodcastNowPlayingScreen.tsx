@@ -17,8 +17,8 @@ const PodcastNowPlayingScreen = (): JSX.Element => {
 	return (
 		<NowPlayingView
 			imageUri={episode.imageUri}
-			title={episode.title}
-			subTitle={episode.channelImageUri}
+			title={episode.channelTitle}
+			subTitle={episode.title}
 			PlaybackControlComponent={
 				<PodcastControlRow
 					speed={1}

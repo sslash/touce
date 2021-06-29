@@ -12,7 +12,7 @@ const ShinyImage: React.FC<Props> = ({ uri }) => {
 	return (
 		<View style={styles.shadow1}>
 			<View style={styles.shadow2}>
-				<FastImage source={{ uri }} style={styles.image} />
+				<FastImage source={{ uri }} style={styles.image} resizeMode="cover" />
 			</View>
 		</View>
 	)

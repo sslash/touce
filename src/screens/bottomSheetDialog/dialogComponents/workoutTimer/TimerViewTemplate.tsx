@@ -40,15 +40,7 @@ const TimerViewTemplate = ({
 			<V my={6}>
 				<SecsAndMinsTimerPicker {...props} enabled={props.isOn} />
 				{!props.isOn && (
-					<Bg
-						abs
-						jc="center"
-						ai="center"
-						flex={1}
-						style={StyleSheet.absoluteFillObject}
-						bg="lightTransparent900"
-						bgDark="backgroundTransparent400"
-					>
+					<Bg style={styles.overlay} bg="noModeLight">
 						<Title>{s.timer.disasbled}</Title>
 					</Bg>
 				)}
@@ -59,5 +51,20 @@ const TimerViewTemplate = ({
 		</V>
 	)
 }
+
+const styles = StyleSheet.create({
+	overlay: {
+		flex: 1,
+		position: 'absolute',
+		opacity: 0.9,
+		justifyContent: 'center',
+		alignItems: 'center',
+		width: '100%',
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 0,
+	},
+})
 
 export default TimerViewTemplate

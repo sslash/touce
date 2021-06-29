@@ -10,12 +10,13 @@ import StartButton from './StartButton'
 import TimerCardsList from './TimerCardsList'
 
 const HomeScreen = (): JSX.Element => {
+	console.log('rerender home')
 	return (
 		<Screen
 			preset="fixed"
 			sludge={SludgeVariant.Minccino}
 			stdMargin
-			sludgeStyle={{ top: responsive({ s: -50, m: -100, xl: -70 }, -40) }}
+			sludgeStyle={{ top }}
 			testID="homeScreen"
 		>
 			<Spacer y={3} />
@@ -34,5 +35,7 @@ const HomeScreen = (): JSX.Element => {
 		</Screen>
 	)
 }
+
+const top = responsive({ s: -50, m: -100, l: -75, xl: -70 }, -40)
 
 export default HomeScreen

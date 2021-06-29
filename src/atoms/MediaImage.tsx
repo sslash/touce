@@ -23,7 +23,12 @@ const MediaImage = ({ variant, uri, sharedElementId, style, ...rest }: Props): J
 	const variantStyle = [styles[variant], style]
 
 	const ImageComp = (
-		<FastImage source={{ uri }} {...rest} style={[variantStyle, { backgroundColor }]} />
+		<FastImage
+			source={{ uri }}
+			{...rest}
+			style={[variantStyle, { backgroundColor }]}
+			resizeMode="cover"
+		/>
 	)
 	if (sharedElementId) {
 		return <SharedElement id={sharedElementId}>{ImageComp}</SharedElement>

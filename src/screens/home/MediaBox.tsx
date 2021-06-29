@@ -26,7 +26,7 @@ const MediaBox = ({ isRest }: Props): JSX.Element => {
 
 	const title = isRest ? 'Griefcast With Cariad Lloyd' : 'This is Billie Eilish'
 	const subTitle = isRest ? 'There is nothing for me left to say here' : 'Playlist'
-	const liftFraction = isRest ? 0.6 : 0.4
+	const liftFraction = 60
 	const modeFill = isRest ? 'primary600' : 'primaryText'
 
 	const onPress = () => {
@@ -60,9 +60,11 @@ const MediaBox = ({ isRest }: Props): JSX.Element => {
 			<ScalingTapView onPress={onPressTimer}>
 				<CircularShiftTimerWithLabel
 					label="2m"
-					liftFraction={isRest ? liftFraction : 1 - liftFraction}
-					liftOpacity={isRest ? 0.1 : 1}
-					restOpacity={isRest ? 1 : 0.1}
+					percentage={isRest ? 1 - liftFraction : liftFraction}
+					selectedColor={isRest ? 'restColor' : 'liftColor'}
+					bgColor={isRest ? 'liftColor' : 'restColor'}
+					size={32}
+					strokeWidth={10}
 				/>
 			</ScalingTapView>
 		</Row>

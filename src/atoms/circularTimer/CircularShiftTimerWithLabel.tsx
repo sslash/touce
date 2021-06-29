@@ -2,30 +2,16 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { FontWeight } from '../../theme/fonts'
 import T from '../texts/T'
-import CircularShiftTimer from './CircularShiftTimer'
+import CircularShiftTimer, { Props as CircleProps } from './CircularShiftTimer'
 
-interface Props {
+interface Props extends CircleProps {
 	label: string
-	liftFraction: number
-	liftOpacity?: number
-	restOpacity?: number
 }
 
-const CircularShiftTimerWithLabel = ({
-	label,
-	liftFraction,
-	liftOpacity,
-	restOpacity,
-}: Props): JSX.Element => {
+const CircularShiftTimerWithLabel = ({ label, ...rest }: Props): JSX.Element => {
 	return (
 		<View>
-			<CircularShiftTimer
-				dontAnimate
-				size={50}
-				strokeWidth={8}
-				liftFraction={liftFraction}
-				{...{ liftOpacity, restOpacity }}
-			></CircularShiftTimer>
+			<CircularShiftTimer size={50} strokeWidth={8} {...rest}></CircularShiftTimer>
 			<View style={styles.labelWrapper}>
 				<T style={styles.label}>{label}</T>
 			</View>
